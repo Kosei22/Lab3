@@ -1,8 +1,14 @@
 package Lab3;
 
 public class Rook extends Piece{
-    public Rook(){
-        this.value = 5;
+
+    public Rook(int value, boolean isWhite){
+        super(value,isWhite);
+    }
+
+    public Rook(boolean isWhite){
+        super(isWhite);
+        super.value = 5;
     }
 
     @Override
@@ -15,10 +21,4 @@ public class Rook extends Piece{
         return "Rook{value=‘" + value + "’}";
     }
 
-    @Override
-    public boolean equals(Object Piece) {
-        if(isWhite && Piece.equals(value)){
-            return true;
-        }return false;
-    }
 }

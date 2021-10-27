@@ -1,9 +1,16 @@
 package Lab3;
 
 public class Knight extends Piece {
-    public Knight(){
-        this.value = 2;
+
+    public Knight(int value, boolean isWhite){
+        super(value,isWhite);
     }
+
+    public Knight(boolean isWhite){
+        super(isWhite);
+        super.value = 2;
+    }
+
 
     @Override
     void move(){
@@ -14,10 +21,4 @@ public class Knight extends Piece {
         return "King{value=‘" + value + "’}";
     }
 
-    @Override
-    public boolean equals(Object Piece) {
-        if(isWhite && Piece.equals(value)){
-            return true;
-        }return false;
-    }
 }

@@ -1,13 +1,20 @@
 package Lab3;
 
-import sun.security.pkcs11.P11TlsKeyMaterialGenerator;
+import java.util.Objects;
 
 public class Pawn extends Piece {
     public boolean promoted;
     public Piece newPiece;
 
-    public Pawn(){
-        this.value = 1;
+    public Pawn(int value, boolean isWhite, boolean promoted, Piece newPiece){
+        super(value, isWhite);
+        this.promoted = promoted;
+        this.newPiece = newPiece;
+    }
+
+    public Pawn(boolean isWhite){
+        super(isWhite);
+        super.value = 1;
     }
 
     @Override
@@ -20,20 +27,24 @@ public class Pawn extends Piece {
         return "Pawn{value=‘" + value + "’}";
     }
 
-    @Override
-    public boolean equals(Object Piece){
-        if(Piece.equals(promoted)){
-            return false;
-        }else if(value == newPiece.value){
-            return false;
-        }
-        return true;
-    }
-
     public void promote(Piece newPiece){
         if (promoted){
             value = newPiece.value;
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Pawn pawn = (Pawn) o;
+        return promoted == pawn.promoted && Objects.equals(newPiece, pawn.newPiece);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(promoted, newPiece);
     }
 }
 

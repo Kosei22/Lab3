@@ -1,8 +1,14 @@
 package Lab3;
 
 public class King extends Piece {
-    public King(){
-        this.value = 1000;
+
+    public King(int value, boolean isWhite){
+        super(value,isWhite);
+    }
+
+    public King(boolean isWhite){
+        super(isWhite);
+        super.value = 1000;
     }
 
     @Override
@@ -13,13 +19,6 @@ public class King extends Piece {
     @Override
     public String toString(){
         return "King{value=‘" + value + "’}";
-    }
-
-    @Override
-    public boolean equals(Object Piece) {
-        if(isWhite && Piece.equals(value)){
-            return true;
-        }return false;
     }
 
 }

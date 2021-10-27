@@ -1,8 +1,14 @@
 package Lab3;
 
 public class Bishop extends Piece{
-    public Bishop(){
-        this.value = 3;
+
+    public Bishop(int value, boolean isWhite){
+        super(value,isWhite);
+    }
+
+    public Bishop(boolean isWhite){
+        super(isWhite);
+        super.value = 3;
     }
 
     @Override
@@ -15,10 +21,4 @@ public class Bishop extends Piece{
         return "Bishop{value=‘" + value + "’}";
     }
 
-    @Override
-    public boolean equals(Object Piece) {
-        if(isWhite && Piece.equals(value)){
-            return true;
-        }return false;
-    }
 }
